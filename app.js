@@ -67,6 +67,10 @@ const SHOPIFY_ADMIN_TOKEN = process.env.STORE_API_TOKEN;
       }      
     });
 
+    if(variantData.length === 0) {
+      console.error("Error: No products found");
+      return;
+    }
 
     variantData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     variantData.forEach((variant) => {
